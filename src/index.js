@@ -21,6 +21,7 @@ async function init() {
 	// Create the main window
 	const screens = screen.getAllDisplays();
 	for (const screen of screens) {
+		console.log(screen);
 		const window = new BrowserWindow({
 			x: screen.bounds.x,
 			y: screen.bounds.y,
@@ -41,11 +42,13 @@ async function init() {
 	}
 
 	desktopCapturer.getSources({ types: ["screen"] }).then(async sources => {
-		for (let i = 0; i < sources.length; i++) {
-			const source = sources[i];
-			const window = windows[i];
-
-			window.webContents.executeJavaScript(`initializeRenderer("${source.id}")`);
+		for (const window of windows) {
+			window.webContents.executeJavaScript(
+				`receiveRenderers(
+					[${sources.map(source => `"${source.id}"`).join(", ")}],
+					[${sources.map(source => `"${source.thumbnail.toDataURL()}"`).join(", ")}]
+				)`
+			);
 		}
 	});
 

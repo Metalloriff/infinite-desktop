@@ -16,3 +16,34 @@ body {
 	object-fit: cover;
 	object-position: center;
 }
+
+#src-selector-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 40px;
+}
+
+#src-selector-container > div {
+	border-radius: 12px;
+	overflow: hidden;
+
+	width: 400px;
+	height: 225px;
+
+	display: flex;
+
+	cursor: pointer;
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+#src-selector-container > div > img {
+	flex-grow: 1;
+}
