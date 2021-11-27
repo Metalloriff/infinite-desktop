@@ -1,0 +1,44 @@
+{
+	"name": "infinite-desktop",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "npx electron . --dev",
+		"build": "electron-builder --linux"
+	},
+	"keywords": [],
+	"author": "Metalloriff",
+	"license": "ISC",
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"sass": "^1.38.1",
+		"sucrase": "^3.20.3"
+	},
+	"devDependencies": {
+		"electron": "^16.0.2",
+		"electron-builder": "^22.14.5"
+	},
+	"build": {
+		"productName": "Infinite Desktop",
+		"artifactName": "InfiniteDesktop-${version}.${ext}",
+		"appId": "com.metalloriff.infinitedesktop",
+		"npmRebuild": false,
+		"files": [
+			"./src/index.js",
+			"./src/img/*",
+			"./src/frontend/*"
+		],
+		"linux": {
+			"target": "AppImage",
+			"category": "Other",
+			"icon": "./src/img/icon.png"
+		},
+		"win": {
+			"target": "portable",
+			"icon": "./src/img/icon.png"
+		}
+	},
+	"homepage": "./"
+}

@@ -1,0 +1,18 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+
+	overflow: hidden;
+}
+
+body {
+	display: flex;
+}
+
+#video {
+	flex-grow: 1;
+
+	object-fit: cover;
+	object-position: center;
+}
